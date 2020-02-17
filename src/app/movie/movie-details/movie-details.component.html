@@ -1,0 +1,46 @@
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal.emit()">&times;</span>
+    <div *ngIf="details.Error">
+      <h3>Error: {{ details.Error }}</h3> 
+      <h4>Please try again.</h4>
+    </div>
+    <table *ngIf="!details.Error">
+      <tr>
+        <td>
+          <div *ngIf="details.Poster" class="movie-image"><img [src]="details.Poster" alt="" /></div>
+        </td>
+        <td>
+            <tr *ngIf="details.Title">
+                <td class="header-text">Title:</td> 
+                <td>{{ details.Title }}</td>
+            </tr>
+            <tr *ngIf="details.Released">
+                <td class="header-text">Release Date:</td>
+                <td>{{ details.Released }}</td>
+            </tr>
+            <tr *ngIf="details.Director">
+                <td class="header-text">Director:</td>
+                <td>{{ details.Director }}</td>
+            </tr>
+            <tr *ngIf="details.Actors">
+                <td class="header-text">Actors:</td>
+                <td>{{ details.Actors }}</td>
+            </tr>
+            <tr *ngIf="details.Plot">
+                <td class="header-text">Plot:</td>
+                <td>{{ details.Plot }}</td>
+            </tr>
+            <tr *ngIf="details.Metascore">
+                <td class="header-text">Metascore:</td>
+                <td>{{ details.Metascore }}</td>
+            </tr>
+            <tr *ngIf="details.imdbRating">
+                <td class="header-text">IMDB Rating:</td>
+                <td>{{ details.imdbRating }}</td>
+            </tr>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
