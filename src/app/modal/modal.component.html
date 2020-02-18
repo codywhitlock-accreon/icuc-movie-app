@@ -1,0 +1,10 @@
+<div id="myModal" class="modal">
+	<div class="modal-content">
+    	<span class="close" (click)="closeModal.emit()">&times;</span>
+    	<div *ngIf="!errorCode" class="loader"></div>
+    	<div *ngIf="errorCode">
+      		<h3>{{ errorCode }}</h3>
+      		<h4>Please try again.</h4>
+    	</div>
+  	</div>
+</div>
