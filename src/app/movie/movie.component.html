@@ -8,13 +8,13 @@
   	<app-modal [hidden]="!loading"></app-modal>
   	<div class="container">
 		<app-modal *ngIf="showErrorModal" [errorCode]="errorText" (closeModal)="showErrorModal = false"></app-modal>
-		<h1 class="center-content">Looking for a movie? <br/> Enter your criteria above.</h1>
+		<h1 *ngIf="!movies || movies?.Response === 'False'" class="center-content">Looking for a movie? <br/> Enter your criteria above.</h1>
     	<div *ngIf="!showErrorModal && (movies && movies?.Response !== 'False')" class="flex-row">
-      	<div *ngFor="let movie of movies?.Search">
-        	<div class="movie-image"><img (click)="handleMovieClicked(movie.imdbID)" [src]="movie.Poster" alt="" /></div>
-        	<div class="details">{{ movie.Title }} / {{ movie.Year }}</div>
-        	<br />
-      	</div>
+			<div *ngFor="let movie of movies?.Search">
+				<div class="movie-image"><img (click)="handleMovieClicked(movie.imdbID)" [src]="movie.Poster" alt="" /></div>
+				<div class="details">{{ movie.Title }} / {{ movie.Year }}</div>
+				<br />
+			</div>
     	</div>
     	<div *ngIf="showModal && !loading">
       	<app-movie-details *ngIf="movieDetails" [details]="movieDetails" (closeModal)="showModal = false">
